@@ -1,9 +1,9 @@
 const URLBASE = 'http://localhost:3000'
-
+import axios from "axios";
 // Traer todas las notas de un usuario
-const getAllNotes = () => {
-    const req = fetch.get(URLBASE)
-    const data = req.then(res => res.json());
+const getAllNotes = async () => {
+    const req = await axios.get(URLBASE)
+    const data = req.data
     return data;
 }
 
@@ -26,7 +26,7 @@ const deleteNote = (id) => {
     return response;
 }
 
-export default {
+export {
     getAllNotes,
     createNote,
     updateNote,

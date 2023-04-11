@@ -1,5 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
-
+import { Routes, Route } from 'react-router-dom'
 // Components
 import { Login } from './components/login/Login'
 import { Home } from './components/home/Home'

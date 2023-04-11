@@ -29,7 +29,11 @@ const FormContainer = styled.form`
         &:hover{
             background-color: aliceblue;
         }
-    }    
+    }
+    
+    .errorMessage{
+        color : red;
+    }
 
     button{
             padding: 0.7rem;

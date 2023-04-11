@@ -1,31 +1,70 @@
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const loginUser = async (payload) => {
-    const response = await fetch.post('http://localhost:3000/', payload)
-    return response;
-}
+// Importamos los servicios
+import { loginUser } from "../../services/Login";
+
 // Style
 import { Container, FormContainer } from "./Login.styled";
 
 
 export function Login() {
 
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [userLogin, setUserLogin] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('')
+    const navitate = useNavigate()
+    // Loguemaos al usuario
+    const handleLogin = async (e) => {
+        e.preventDefault();
 
-    const handleSubmit = async (e) => {
-        console.log(e)
-        redirect('/home')
+        try {
+            const user = await loginUser({ userName, password })
+
+            setUserLogin(user);
+            setUserName('');
+            setPassword('');
+            return navitate("/home")
+
+
+        } catch (e) {
+            setUserName('');
+            setPassword('');
+            setErrorMessage('Wrong credentials')
+            setTimeout(() => {
+                setErrorMessage(null)
+            }, 7000)
+        }
+
+
     }
+
 
     return (
         <>
             <Container>
                 <h1>App Notes</h1>
-                <FormContainer action="" className="form-container">
-                    <label htmlFor="">UserName</label>
-                    <input type="text" name="userName" />
+                <FormContainer onSubmit={handleLogin}>
+                    <label >UserName</label>
+                    <input
+                        type="text"
+                        value={userName}
+                        name="UserName"
+                        onChange={({ target }) => setUserName(target.value)}
+                    />
+
                     <label htmlFor="">Password</label>
-                    <input type="password" name="password" />
-                    <button onSubmit={handleSubmit} >Login</button>
+                    <input
+                        type="password"
+                        name="Password"
+                        value={password}
+                        onChange={({ target }) => setPassword(target.value)}
+                    />
+                    {
+                        errorMessage ? <p className="errorMessage">{errorMessage}</p> : ''
+                    }
+                    <button type="submit">Login</button>
                 </FormContainer>
 
             </Container>
