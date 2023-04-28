@@ -14,7 +14,7 @@ export function Login() {
     const [password, setPassword] = useState('');
     const [userLogin, setUserLogin] = useState(null);
     const [errorMessage, setErrorMessage] = useState('')
-    const navitate = useNavigate()
+    const browse = useNavigate()
     // Loguemaos al usuario
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -25,7 +25,13 @@ export function Login() {
             setUserLogin(user);
             setUserName('');
             setPassword('');
-            return navitate("/home")
+
+            // localStorage
+            window.localStorage.setItem(
+                'loggedNoteappUser', JSON.stringify(user)
+            )
+
+            return browse(`/home`)
 
 
         } catch (e) {
@@ -71,3 +77,8 @@ export function Login() {
         </>
     )
 }
+
+// Cuenta Prueba
+
+// username: Pedrito
+// password: pedroprueba
