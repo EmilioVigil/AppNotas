@@ -15,6 +15,7 @@ export function Login() {
     const [userLogin, setUserLogin] = useState(null);
     const [errorMessage, setErrorMessage] = useState('')
     const browse = useNavigate()
+
     // Loguemaos al usuario
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -78,7 +79,3 @@ export function Login() {
     )
 }
 
-// Cuenta Prueba
-
-// username: Pedrito
-// password: pedroprueba

@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState } from "react"
 import { NoteContainer, Container } from "./Home.styled";
 // Importamos el hook
 import { useNote } from "../../hooks/useNotes";
+import { CardNote } from "../cardNote/CardNote";
 
 export function Home() {
-    const { user, setUser, notes } = useNote()
-
-
+    const { user, setUser, notes, deleteNote } = useNote()
     return (
         <Container>
             <h2>Notas de {user.userName} </h2>
@@ -17,10 +15,13 @@ export function Home() {
                         notes.map(note => {
                             return (
                                 <NoteContainer key={note._id}>
-                                    <div>
-                                        <h2>{note.title}</h2>
-                                        <p>{note.content}</p>
-                                    </div>
+                                    <CardNote
+                                        title={note.title}
+                                        content={note.content}
+                                        id={note._id}
+                                        deleteNote={deleteNote}
+                                    />
+
                                 </NoteContainer>
 
                             )
