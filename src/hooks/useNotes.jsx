@@ -18,9 +18,7 @@ export function useNote() {
 
     const deleteNote = async (id) => {
         const noteDelete = await axios.delete(`http://localhost:3000/notes/delete/${id}`)
-        axios.get(`http://localhost:3000/users/note?username=${userLogged.userName}`).then((response) => {
-            setNotes(response.data);
-        })
+        setNotes(notes.filter((note) => note._id != id))
     }
 
 
