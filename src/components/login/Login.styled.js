@@ -1,58 +1,84 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    background-color: rgb(6, 9, 12);
-    color: white;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+
+
 `
 
 const FormContainer = styled.form`
-    width: 20rem;
-    height: 30rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    border: 1px solid rgba(248, 248, 248, 0.918);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  min-width: 350px;
+  max-width: 500px;
+  padding: 40px;
+  background-color: #4169e1;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
-    input{
-        border-style: none;
-        border-radius: 4px;
-        height: 1.5rem;
-        &:hover{
-            background-color: aliceblue;
-        }
-    }
-    
-    .errorMessage{
-        color : red;
+  h1{
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+
+      transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: #fff;
+    color: #4169e1;
+  }
+
     }
 
-    button{
-            padding: 0.7rem;
-            border-radius: 5px;
-            background-color: transparent;
-            color : white;
-            transition : all .5s;
-
-            &:hover{
-                background-color: white;
-                color : black;
-            }
+  input{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
     }
+
+ label{
+    color: #fff;
+    padding-bottom: 1rem;
+ }
 
 `
+
+const ImageContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    
+    img{
+    object-fit: cover;
+    }
+
+  `;
 
 
 
 export {
     Container,
-    FormContainer
+    FormContainer,
+    ImageContainer
 }

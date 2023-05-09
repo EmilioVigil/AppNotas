@@ -5,8 +5,8 @@ import { useState } from "react";
 import { loginUser } from "../../services/Login";
 
 // Style
-import { Container, FormContainer } from "./Login.styled";
-
+import { Container, FormContainer, ImageContainer } from "./Login.styled";
+import notas from '../../../public/notas.svg'
 
 export function Login() {
 
@@ -51,8 +51,8 @@ export function Login() {
     return (
         <>
             <Container>
-                <h1>App Notes</h1>
                 <FormContainer onSubmit={handleLogin}>
+                    <h1>Notas App</h1>
                     <label >UserName</label>
                     <input
                         type="text"
@@ -73,7 +73,9 @@ export function Login() {
                     }
                     <button type="submit">Login</button>
                 </FormContainer>
-
+                <ImageContainer>
+                    <img src={notas} alt="imagenNota" />
+                </ImageContainer>
             </Container>
         </>
     )
