@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
+const ContainerLogin = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
@@ -30,6 +30,7 @@ const FormContainer = styled.form`
   button{
     width: 100%;
     padding: 10px;
+    margin-top: 1rem;
     border-radius: 5px;
     border: none;
     background-color: #fff;
@@ -37,7 +38,7 @@ const FormContainer = styled.form`
     font-size: 16px;
     cursor: pointer;
 
-      transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
   &:hover {
     transform: scale(1.1);
@@ -61,6 +62,11 @@ const FormContainer = styled.form`
     padding-bottom: 1rem;
  }
 
+ .errorMessage{
+  color: red;
+  padding: 0.5rem;
+ }
+
 `
 
 const ImageContainer = styled.div`
@@ -78,7 +84,7 @@ const ImageContainer = styled.div`
 
 
 export {
-    Container,
-    FormContainer,
-    ImageContainer
+  ContainerLogin,
+  FormContainer,
+  ImageContainer
 }

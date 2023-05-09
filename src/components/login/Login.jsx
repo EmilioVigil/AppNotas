@@ -3,9 +3,8 @@ import { useState } from "react";
 
 // Importamos los servicios
 import { loginUser } from "../../services/Login";
-
 // Style
-import { Container, FormContainer, ImageContainer } from "./Login.styled";
+import { ContainerLogin, FormContainer, ImageContainer } from "./Login.styled";
 import notas from '../../../public/notas.svg'
 
 export function Login() {
@@ -50,7 +49,7 @@ export function Login() {
 
     return (
         <>
-            <Container>
+            <ContainerLogin>
                 <FormContainer onSubmit={handleLogin}>
                     <h1>Notas App</h1>
                     <label >UserName</label>
@@ -76,7 +75,10 @@ export function Login() {
                 <ImageContainer>
                     <img src={notas} alt="imagenNota" />
                 </ImageContainer>
-            </Container>
+            </ContainerLogin>
+
+
+
         </>
     )
 }

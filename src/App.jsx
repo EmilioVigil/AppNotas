@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 // Components
-import { Login } from './components/login/Login'
+import { LoginScreen } from './components/LoginScreen/LoginScreen'
 import { Home } from './components/home/Home'
 import { CreateNote } from './components/createNote/CreateNote'
 export function App() {
@@ -10,7 +10,7 @@ export function App() {
       <Routes>
         <Route
           path='/'
-          element={<Login />}
+          element={< LoginScreen />}
         />
         <Route
           path='/home'
