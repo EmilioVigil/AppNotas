@@ -67,6 +67,27 @@ const FormContainer = styled.form`
   padding: 0.5rem;
  }
 
+ p{
+   color: #fff;
+    margin-top: 1rem;
+   a{
+    color:white;
+   }
+ }
+
+`
+
+const ImageContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img{
+      max-width: 100%;
+      max-height: 100%;
+
+  }
 `
 
 
@@ -76,5 +97,5 @@ const FormContainer = styled.form`
 export {
   ContainerLogin,
   FormContainer,
-
+  ImageContainer
 }

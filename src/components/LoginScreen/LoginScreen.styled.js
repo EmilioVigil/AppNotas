@@ -28,7 +28,7 @@ const ContainerButton = styled.div`
     cursor: pointer;
     opacity: .9;
     transition: all 0.3s ease-in-out;
-
+      
   &:hover {
     transform: scale(1.1);
     background-color: #4169E1;

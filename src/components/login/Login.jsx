@@ -4,8 +4,8 @@ import { useState } from "react";
 // Importamos los servicios
 import { loginUser } from "../../services/Login";
 // Style
-import { ContainerLogin, FormContainer } from "./Login.styled";
-
+import { ContainerLogin, FormContainer, ImageContainer } from "./Login.styled";
+import LoginImg from '../../../public/Login.svg'
 export function Login() {
 
     const [userName, setUserName] = useState('');
@@ -70,7 +70,11 @@ export function Login() {
                         errorMessage ? <p className="errorMessage">{errorMessage}</p> : ''
                     }
                     <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="http://localhost:5173/singup">Sign Up</a> </p>
                 </FormContainer>
+                <ImageContainer>
+                    <img src={LoginImg} alt="imagen-Login" />
+                </ImageContainer>
 
             </ContainerLogin>
 
