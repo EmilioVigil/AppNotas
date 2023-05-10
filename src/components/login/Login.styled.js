@@ -28,7 +28,7 @@ const FormContainer = styled.form`
   }
 
   button{
-    width: 100%;
+    width: 20rem;
     padding: 10px;
     margin-top: 1rem;
     border-radius: 5px;
@@ -49,7 +49,7 @@ const FormContainer = styled.form`
     }
 
   input{
-  width: 100%;
+  width: 20rem;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
