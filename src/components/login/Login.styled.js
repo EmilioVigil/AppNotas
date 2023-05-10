@@ -69,22 +69,12 @@ const FormContainer = styled.form`
 
 `
 
-const ImageContainer = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-    
-    img{
-    object-fit: cover;
-    }
 
-  `;
 
 
 
 export {
   ContainerLogin,
   FormContainer,
-  ImageContainer
+
 }

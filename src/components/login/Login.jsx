@@ -4,8 +4,7 @@ import { useState } from "react";
 // Importamos los servicios
 import { loginUser } from "../../services/Login";
 // Style
-import { ContainerLogin, FormContainer, ImageContainer } from "./Login.styled";
-import notas from '../../../public/notas.svg'
+import { ContainerLogin, FormContainer } from "./Login.styled";
 
 export function Login() {
 
@@ -72,9 +71,7 @@ export function Login() {
                     }
                     <button type="submit">Login</button>
                 </FormContainer>
-                <ImageContainer>
-                    <img src={notas} alt="imagenNota" />
-                </ImageContainer>
+
             </ContainerLogin>
 
 
