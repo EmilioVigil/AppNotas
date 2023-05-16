@@ -22,6 +22,27 @@ const FormContainer = styled.form`
         font-size: 24px;
     }
 
+    input{
+        width: 20rem;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+    }
+
+ label{
+        color: #fff;
+        padding-bottom: 1rem;
+    }
+
+ p{
+   color: #fff;
+    margin-top: 1rem;
+   a{
+    color:white;
+   }
+ }
 `
 
 const ButtonSignUp = styled.button`
@@ -44,8 +65,22 @@ const ButtonSignUp = styled.button`
   }
 `
 
+const ImageContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img{
+      max-width: 100%;
+      max-height: 100%;
+
+  }
+`
+
 export {
     ContainerSignUp,
     FormContainer,
-    ButtonSignUp
+    ButtonSignUp,
+    ImageContainer
 }

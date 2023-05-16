@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signUpUser } from '../../services/SignUp'
 import SignUpImg from '../../../public/SignUp.svg'
-import { ContainerSignUp, FormContainer } from './SignUp.styled'
+import { ContainerSignUp, FormContainer, ButtonSignUp, ImageContainer } from './SignUp.styled'
 
 
 export function SignUp() {
@@ -14,8 +14,13 @@ export function SignUp() {
         password: ''
     })
 
-    const [signUpCorrect, setSignUpCorrect] = useState('')
-    const [errorServer, setErrorServer] = useState('')
+    // Manejo de errores
+    const [error, setError] = useState({
+        name: '',
+        userName: '',
+        gmail: '',
+        password: ''
+    })
 
     const changeLogin = ({ target }) => {
         setInput({
@@ -28,22 +33,16 @@ export function SignUp() {
         e.preventDefault();
         try {
             const signUp = await signUpUser(input)
-            setTimeout(() => {
-                setSignUpCorrect('Congratulations! Your registration has been successfully completed.')
-            }, 3000)
-
             return navigate('/login')
         } catch (e) {
-            setErrorServer('Wrong Credentials')
+            console.log(e)
         }
     }
 
     return (
         <>
             <ContainerSignUp>
-                {
-                    signUpCorrect ? <p>{signUpCorrect}</p> : ''
-                }
+
                 <FormContainer>
 
                     <h2>Sign Up</h2>
@@ -75,19 +74,17 @@ export function SignUp() {
                         name="password"
                         onChange={changeLogin}
                     />
-                    {
-                        errorServer ? <p>{errorServer}</p> : ''
-                    }
-                    <button onClick={handleSignUp} >
+
+                    <ButtonSignUp onClick={handleSignUp} >
                         Sign Up
-                    </button>
+                    </ButtonSignUp>
                     <p>Already have an account? <a href="http://localhost:5173/login">Login</a> </p>
 
                 </FormContainer>
 
-                <div>
+                <ImageContainer>
                     <img src={SignUpImg} alt="imagenSignUp" />
-                </div>
+                </ImageContainer>
 
             </ContainerSignUp>
         </>
