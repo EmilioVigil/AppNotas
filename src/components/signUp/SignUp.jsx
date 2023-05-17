@@ -6,7 +6,18 @@ import { ContainerSignUp, FormContainer, ButtonSignUp, ImageContainer, ErrorForm
 
 const validate = (input) => {
     let errors = {};
+    const isValidEmail = (email) => {
+        // Validar formato de correo electrónico de Gmail
+        // Puedes personalizar esta validación según tus requisitos
+        const regex = /^[^\s@]+@gmail\.com$/;
+        return regex.test(email);
+    };
 
+    const hasNumber = (password) => {
+        // Verificar si la contraseña contiene al menos un número
+        const regex = /\d/;
+        return regex.test(password);
+    };
     if (!input.userName) {
         errors.userName = 'El campo userName es obligatorio'
     }
@@ -54,18 +65,7 @@ export function SignUp() {
         })
     }
 
-    const isValidEmail = (email) => {
-        // Validar formato de correo electrónico de Gmail
-        // Puedes personalizar esta validación según tus requisitos
-        const regex = /^[^\s@]+@gmail\.com$/;
-        return regex.test(email);
-    };
 
-    const hasNumber = (password) => {
-        // Verificar si la contraseña contiene al menos un número
-        const regex = /\d/;
-        return regex.test(password);
-    };
 
     const handleSignUp = async (e) => {
         e.preventDefault();
