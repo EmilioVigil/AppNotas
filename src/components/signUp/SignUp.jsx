@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signUpUser } from '../../services/SignUp'
 import SignUpImg from '../../../public/SignUp.svg'
-import { ContainerSignUp, FormContainer, ButtonSignUp, ImageContainer, ErrorForm } from './SignUp.styled'
+import { ContainerSignUp, FormContainer, ButtonSignUp, ImageContainer, ErrorForm, LinkLogin } from './SignUp.styled'
 
 const validate = (input) => {
     let errors = {};
@@ -23,8 +23,8 @@ const validate = (input) => {
     }
     if (!input.gmail) {
         errors.gmail = 'El campo gmail es obligatorio'
-    } else if (!isValidEmail(input.email)) {
-        errors.email = 'El correo electrónico debe tener formato de Gmail.';
+    } else if (!isValidEmail(input.gmail)) {
+        errors.gmail = 'El correo electrónico debe tener formato de Gmail.';
     }
     if (!input.password) {
         errors.password = 'El campo password es obligatorio'
@@ -63,9 +63,18 @@ export function SignUp() {
             ...input,
             [target.name]: target.value
         })
+        setError(validate({
+            ...input,
+            [target.name]: target.value
+        }))
     }
 
-
+    const checkForm = () => {
+        if (error.gmail || error.name || error.password || error.userName) {
+            return true
+        }
+        return false
+    }
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -132,10 +141,10 @@ export function SignUp() {
                         error.password ? <ErrorForm>{error.password}</ErrorForm> : ''
                     }
 
-                    <ButtonSignUp onClick={handleSignUp} >
+                    <ButtonSignUp onClick={handleSignUp} disabled={checkForm()} >
                         Sign Up
                     </ButtonSignUp>
-                    <p>Already have an account? <a href="http://localhost:5173/login">Login</a> </p>
+                    <LinkLogin>Already have an account? <a href="http://localhost:5173/login">Login</a> </LinkLogin>
 
                 </FormContainer>
 

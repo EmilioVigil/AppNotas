@@ -36,13 +36,6 @@ const FormContainer = styled.form`
         padding-bottom: 1rem;
     }
 
- p{
-   color: #fff;
-    margin-top: 1rem;
-   a{
-    color:white;
-   }
- }
 `
 
 const ButtonSignUp = styled.button`
@@ -55,7 +48,6 @@ const ButtonSignUp = styled.button`
     color: black;
     font-size: 16px;
     cursor: pointer;
-
     transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -63,6 +55,13 @@ const ButtonSignUp = styled.button`
     background-color: #fff;
     color: #4169e1;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+
 `
 
 const ImageContainer = styled.div`
@@ -78,9 +77,19 @@ const ImageContainer = styled.div`
   }
 `
 
+const LinkLogin = styled.p`
+  color : #fff;
+  margin-top: 1rem;
+
+  a{
+    color : #fff
+  }
+
+`
+
 const ErrorForm = styled.p`
-  color: white;
-  background-color: black;
+  color : red;
+  margin-bottom: 1rem;
 `
 
 
@@ -89,5 +98,6 @@ export {
   FormContainer,
   ButtonSignUp,
   ImageContainer,
+  LinkLogin,
   ErrorForm
 }
