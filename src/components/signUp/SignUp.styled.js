@@ -78,9 +78,16 @@ const ImageContainer = styled.div`
   }
 `
 
+const ErrorForm = styled.p`
+  color: white;
+  background-color: black;
+`
+
+
 export {
-    ContainerSignUp,
-    FormContainer,
-    ButtonSignUp,
-    ImageContainer
+  ContainerSignUp,
+  FormContainer,
+  ButtonSignUp,
+  ImageContainer,
+  ErrorForm
 }
