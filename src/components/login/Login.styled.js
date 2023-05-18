@@ -18,7 +18,7 @@ const FormContainer = styled.form`
   min-width: 350px;
   max-width: 500px;
   padding: 40px;
-  background-color: #4169e1;
+  background-color: #202123;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
   h1{
