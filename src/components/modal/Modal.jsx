@@ -1,21 +1,21 @@
-import styled from 'styled-components'
+import {
+    Modal,
+    Button,
+    ModalContent
+} from './Modal.styled'
 
 export function DeleteConfirmationModal({ onConfirm, onCancel }) {
     return (
         <Modal>
-            <div>
+            <ModalContent>
                 <p>¿Está seguro de que desea eliminar esta nota?</p>
                 <div>
-                    <button onClick={onConfirm}>Aceptar</button>
-                    <button onClick={onCancel}>Cancelar</button>
+                    <Button onClick={onConfirm} primary  >Borrar</Button>
+                    <Button onClick={onCancel} >Cancelar</Button>
                 </div>
-            </div>
+            </ModalContent>
         </Modal>
     )
 }
 
 
-const Modal = styled.div`
-    background-color: red;
-
-`
