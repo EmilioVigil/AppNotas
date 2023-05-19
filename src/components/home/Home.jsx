@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-import { NoteContainer, Container } from "./Home.styled";
+import {
+    Container,
+    NotesList,
+    MainContent,
+    CreateNoteButton,
+    Sidebar,
+    SidebarTitle
+}
+    from "./Home.styled";
 import { useState } from "react";
 // Importamos el hook
 import { useNote } from "../../hooks/useNotes";
@@ -24,45 +32,57 @@ export function Home() {
 
     return (
         <Container>
-            <h2>Notas de {user.userName} </h2>
-            {
-                !notes.length ? <p>Loading...</p> :
-                    (
-                        notes.map(note => {
-                            return (
-                                <NoteContainer key={note._id}>
-                                    <CardNote
-                                        title={note.title}
-                                        content={note.content}
-                                        id={note._id}
-                                        handleDeleteNoteClick={handleDeleteNoteClick}
-                                    />
+            <Sidebar>
+                Notas de {user.userName}
+                <SidebarTitle>{user.userName}</SidebarTitle>
+                <CreateNoteButton>
+                    <Link
+                        to={'/createNote'}>
+                        Create Note
+                    </Link>
+                </CreateNoteButton>
+            </Sidebar>
+            <MainContent>
+                <NotesList>
+                    {
 
-                                </NoteContainer>
-
+                        !notes.length ? <p>Loading...</p> :
+                            (
+                                notes.map(note => {
+                                    return (
+                                        <CardNote
+                                            id={note._id}
+                                            title={note.title}
+                                            content={note.content}
+                                            handleDeleteNoteClick={handleDeleteNoteClick}
+                                        />
+                                    )
+                                })
                             )
-                        })
+                    }
+                </NotesList>
+
+                {
+                    showDeleteConfirmation && (
+                        <DeleteConfirmationModal
+                            onConfirm={() => {
+                                setShowDeleteConfirmation(false)
+                                deleteNote(noteToDelete)
+                            }}
+                            onCancel={handleCancelDeleteNote}
+                        />
                     )
-            }
+                }
 
-            {
-                showDeleteConfirmation && (
-                    <DeleteConfirmationModal
-                        onConfirm={() => {
-                            setShowDeleteConfirmation(false)
-                            deleteNote(noteToDelete)
-                        }}
-                        onCancel={handleCancelDeleteNote}
-                    />
-                )
-            }
+            </MainContent>
 
-            <Link
-                to={'/createNote'}>
-                <button >Create Note</button>
-            </Link>
         </Container>
     )
 }
+
+
+
+
+
 
 

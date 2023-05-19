@@ -73,6 +73,7 @@ export function SignUp() {
         if (error.gmail || error.name || error.password || error.userName) {
             return true
         }
+        if (input.name === '') return true
         return false
     }
 

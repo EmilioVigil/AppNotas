@@ -1,9 +1,8 @@
-import { useState } from "react";
-
+import styled from 'styled-components'
 
 export function DeleteConfirmationModal({ onConfirm, onCancel }) {
     return (
-        <div>
+        <Modal>
             <div>
                 <p>¿Está seguro de que desea eliminar esta nota?</p>
                 <div>
@@ -11,8 +10,12 @@ export function DeleteConfirmationModal({ onConfirm, onCancel }) {
                     <button onClick={onCancel}>Cancelar</button>
                 </div>
             </div>
-        </div>
+        </Modal>
     )
 }
 
 
+const Modal = styled.div`
+    background-color: red;
+
+`
