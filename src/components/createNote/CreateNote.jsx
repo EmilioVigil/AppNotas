@@ -46,34 +46,37 @@ export function CreateNote() {
 
 
     return (
-        <FormContainer>
-            <Title>Create Note</Title>
-            <label>
-                Charge new note:
-            </label>
-            <Input
-                type="text"
-                name="title"
-                value={input.title}
-                onChange={handleChange}
-            />
-            <label>
-                Note content:
-            </label>
-            <textarea
-                name="content"
-                value={input.content}
-                onChange={handleChange}
-            ></textarea>
-            <Button
-                type='submit'
-                onClick={handleSubmitCreate}>
-                Create Note
-            </Button>
+        <div>
 
+            <FormContainer>
+                <Title>Create Note</Title>
+                <label>
+                    Charge new note:
+                </label>
+                <Input
+                    type="text"
+                    name="title"
+                    value={input.title}
+                    onChange={handleChange}
+                />
+                <label>
+                    Note content:
+                </label>
+                <textarea
+                    name="content"
+                    value={input.content}
+                    onChange={handleChange}
+                ></textarea>
+                <Button
+                    type='submit'
+                    onClick={handleSubmitCreate}>
+                    Create Note
+                </Button>
+
+            </FormContainer>
             <Link to={'/home'}>
                 <BackButton>Volver a la pagina principal</BackButton>
             </Link>
-        </FormContainer>
+        </div>
     )
 }
